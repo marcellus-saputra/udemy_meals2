@@ -3,14 +3,17 @@ import 'package:transparent_image/transparent_image.dart';
 
 import '../models/meal.dart';
 import 'meal_card_icon.dart';
+import '../screens/meal_details.dart';
 
 class MealCard extends StatelessWidget {
   const MealCard({
     super.key,
     required this.meal,
+    required this.onSelectMeal,
   });
 
   final Meal meal;
+  final void Function(Meal meal) onSelectMeal;
 
   String get complexityToText {
     return meal.complexity.name[0].toUpperCase() +
@@ -32,7 +35,7 @@ class MealCard extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       elevation: 2,
       child: InkWell(
-        onTap: () {},
+        onTap: () => onSelectMeal(meal),
         child: Stack(children: [
           FadeInImage(
             placeholder: MemoryImage(kTransparentImage),
