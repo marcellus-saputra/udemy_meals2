@@ -9,14 +9,16 @@ class CategoryCard extends StatelessWidget {
   const CategoryCard({
     super.key,
     required this.category,
+    required this.onSelectCategory,
   });
 
   final meal.Category category;
+  final void Function() onSelectCategory;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onSelectCategory,
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(16),
       child: Container(

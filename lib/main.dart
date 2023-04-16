@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:udemy_meals2/screens/meals.dart';
 import 'screens/categories.dart';
-import 'screens/meals.dart';
-import 'data/dummy_data.dart';
 
 final theme = ThemeData(
   useMaterial3: true,
@@ -26,6 +25,9 @@ class App extends StatelessWidget {
     return MaterialApp(
       theme: theme,
       home: CategoriesScreen(),
+      routes: {
+        CategoriesScreen.routeName: (context) => CategoriesScreen(),
+      },
     );
   }
 }

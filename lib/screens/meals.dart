@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import '../models/meal.dart';
 
 class MealsScreen extends StatelessWidget {
+  static const routeName = '/meals';
   const MealsScreen({
     super.key,
     required this.title,
