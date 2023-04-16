@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../models/meal.dart';
+import '../widgets/meal_card.dart';
 
 class MealsScreen extends StatelessWidget {
   static const routeName = '/meals';
@@ -42,7 +43,7 @@ class MealsScreen extends StatelessWidget {
           )
         : ListView.builder(
             itemCount: meals.length,
-            itemBuilder: (ctx, i) => Text(meals[i].title),
+            itemBuilder: (ctx, i) => MealCard(meal: meals[i]),
           );
     return Scaffold(
       appBar: AppBar(
