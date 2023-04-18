@@ -10,11 +10,11 @@ class MealsScreen extends StatelessWidget {
   static const routeName = '/meals';
   const MealsScreen({
     super.key,
-    required this.title,
+    this.title,
     required this.meals,
   });
 
-  final String title;
+  final String? title;
   final List<Meal> meals;
 
   void selectMeal(BuildContext context, Meal meal) {
@@ -59,9 +59,13 @@ class MealsScreen extends StatelessWidget {
               },
             ),
           );
+
+    if (title == null) {
+      return content;
+    }
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(title!),
       ),
       body: content,
     );
