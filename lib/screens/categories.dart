@@ -4,10 +4,16 @@ import 'package:udemy_meals2/widgets/category_card.dart';
 import '../data/dummy_data.dart';
 import 'meals.dart';
 import '../models/category.dart';
+import '../models/meal.dart';
 
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key});
+  const CategoriesScreen({
+    super.key,
+    required this.onToggleFavorite,
+  });
   static const routeName = '/categories';
+
+  final void Function(Meal meal) onToggleFavorite;
 
   void _selectCategory(BuildContext context, Category category) {
     final meals =
@@ -16,6 +22,7 @@ class CategoriesScreen extends StatelessWidget {
       builder: (ctx) => MealsScreen(
         title: category.title,
         meals: meals.toList(),
+        onToggleFavorite: onToggleFavorite,
       ),
     ));
   }

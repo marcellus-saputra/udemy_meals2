@@ -26,9 +26,6 @@ class App extends StatelessWidget {
     return MaterialApp(
       theme: theme,
       home: TabsScreen(),
-      routes: {
-        CategoriesScreen.routeName: (context) => CategoriesScreen(),
-      },
     );
   }
 }
